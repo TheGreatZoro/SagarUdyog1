@@ -1,0 +1,382 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Responsive Portfolio</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700&display=swap" rel="stylesheet" />
+
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        html {
+            scroll-behavior: smooth;
+            font-size: 16px;
+        }
+
+        body {
+            font-family: 'Poppins', sans-serif;
+            background-color: #1e1e1e;
+            color: white;
+            line-height: 1.6;
+            overflow-x: hidden;
+        }
+
+        nav {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 0.5rem 1.5rem;
+            background-color: #fdd808;
+            flex-wrap: wrap;
+        }
+
+        nav .left {
+            display: flex;
+            align-items: center;
+            font-size: 1.5rem;
+            font-weight: 600;
+            gap: 2rem;
+            position: relative;
+        }
+
+        .logo {
+            height: 70px;
+            width: auto;
+        }
+
+        .logo-text {
+            position: relative;
+            color: rgb(58, 58, 58);
+            cursor: pointer;
+            transition: color 0.3s ease;
+            font-size: 3rem;
+        }
+
+        .nav-toggle {
+            display: none;
+            background-color: #333;
+            border: none;
+            color: #fff;
+            padding: 0.5rem 1rem;
+            font-size: 1.2rem;
+            cursor: pointer;
+            border-radius: 5px;
+        }
+
+        nav .right ul {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 0px;
+            list-style: none;
+            padding: 0;
+            margin: 0;
+        }
+
+        nav .right ul li a {
+            color: rgb(44, 44, 44);
+            text-decoration: none;
+            transition: 0.3s ease;
+            font-weight: 1000;
+            font-size: 1.5rem;
+            padding-right: 80px;
+        }
+
+        nav .right ul li a:hover {
+            color: rgb(84, 90, 4);
+            font-size: 1.6rem;
+        }
+
+        .firstsection {
+            display: flex;
+            flex-direction: row;
+            align-items: center;
+            justify-content: center;
+            padding: 3rem 1.5rem;
+            flex-wrap: wrap;
+            gap: 2rem;
+        }
+
+        .leftsection {
+            flex: 1 1 300px;
+            font-size: 1.75rem;
+            padding: 1rem;
+            text-align: left;
+        }
+
+        .rightsection {
+            flex: 1 1 280px;
+            text-align: center;
+            position: relative;
+        }
+
+        .rightsection::before {
+            content: "";
+            position: absolute;
+            top: -2rem;
+            left: 50%;
+            transform: translateX(-50%);
+            font-size: 1.5rem;
+            color: #ffcc00;
+            font-weight: bold;
+            text-shadow: 1px 1px 2px #000;
+        }
+
+        .rightsection img {
+            max-width: 90%;
+            height: auto;
+            border-radius: 3rem;
+            width: 350px;
+        }
+
+        .group-section {
+            position: absolute;
+            top: 150px;
+            left: 20px;
+        }
+
+        .group-section h2 {
+            color: chocolate;
+        }
+
+        .group-section ul {
+            margin-top: 1rem;
+        }
+
+        .group-section ul li {
+            font-size: larger;
+            list-style: none;
+            margin-bottom: 0.5rem;
+            left: 200px;
+        }
+
+        .mobile-box {
+            display: none;
+        }
+
+        .good {
+            color: rgb(255, 222, 34);
+        }
+
+        #element {
+            color: rgb(231, 208, 0);
+        }
+
+        @media (max-width: 768px) {
+            nav {
+                flex-direction: column;
+                align-items: center;
+                text-align: center;
+            }
+
+            .nav-toggle {
+                display: block;
+                margin-top: 0.5rem;
+            }
+
+            nav .right ul {
+                display: none;
+                flex-direction: column;
+                align-items: center;
+                margin-top: 1rem;
+                gap: 1rem;
+            }
+
+            nav.active .right ul {
+                display: flex;
+            }
+
+            .firstsection {
+                flex-direction: column;
+                padding: 2rem 1rem;
+                text-align: center;
+            }
+
+            .leftsection {
+                font-size: 1.5rem;
+                padding: 0.5rem;
+            }
+
+            .rightsection img {
+                width: 100%;
+                max-width: 350px;
+                margin: auto;
+            }
+
+            .group-section {
+                display: none;
+            }
+
+            .mobile-box {
+                display: block;
+                background-color: #2b2b2b;
+                border-radius: 10px;
+                padding: 1.5rem;
+                margin: 2rem;
+                color: white;
+            }
+
+            .mobile-box h2 {
+                color: chocolate;
+                margin-bottom: 1rem;
+                text-align: center;
+            }
+
+            .mobile-box ul {
+                padding-left: 0;
+            }
+
+            .mobile-box ul li {
+                list-style: none;
+                margin: 0.5rem 0;
+                font-size: 1rem;
+            }
+        }
+
+        @media (max-width: 480px) {
+            html {
+                font-size: 15px;
+            }
+
+            nav .left {
+                font-size: 1.3rem;
+                flex-direction: column;
+                gap: 0.25rem;
+            }
+
+            .leftsection {
+                font-size: 1.4rem;
+            }
+
+            .firstsection {
+                padding: 1.5rem 1rem;
+                gap: 1.5rem;
+            }
+        }
+
+        .img1 {
+            height: auto;
+            width: 110px;
+            float: left;
+            position: relative;
+            bottom: -100px;
+            left: 350px;
+        }
+
+        .dog {
+            position: relative;
+            top: -40px;
+            padding-left: 490px;
+            font-weight: 120;
+            animation: pulse 4s infinite;
+            color: rgb(187, 184, 184);
+        }
+
+     
+
+        @keyframes pulse {
+            0% {
+                transform: scale(1);
+            }
+            50% {
+                transform: scale(1.08);
+            }
+            100% {
+                transform: scale(1);
+            }
+        }
+    </style>
+</head>
+
+<body>
+    <header>
+        <nav id="navbar">
+            <div class="left">
+                <img src="Logo.png" alt="Logo" class="logo" />
+                <span class="logo-text">Sagar Udyog</span>
+                <div class="vertical-line"></div>
+            </div>
+            <button class="nav-toggle" onclick="toggleMenu()">☰ Menu</button>
+            <div class="right">
+                <ul>
+                    <li><a href="#">Home</a></li>
+                    <li><a href="#">Products</a></li>
+                    <li><a href="#">About</a></li>
+                    <li><a href="#">Contact</a></li>
+                </ul>
+            </div>
+        </nav>
+    </header>
+
+    <main>
+        <section class="firstsection">
+            <div class="leftsection">
+                <span class="good"></span> <span id="element"></span>
+            </div>
+            <div class="rightsection">
+                <img src="pop.jpeg" alt="Developer illustration">
+            </div>
+        </section>
+
+        <div class="group-section">
+            <h2>Sagar Udyog Group</h2>
+            <ul>
+                <li>⦿ K-mens Educational Aids</li>
+                <li>⦿ Sagar Udyog</li>
+                <li>⦿ Sagar Arts</li>
+                <li>⦿ Weekly Janta Shilpkar</li>
+                <li>⦿ Sharyu Industry</li>
+                <li>⦿ Padmaja Industry</li>
+                <li>⦿ P & P Industry</li>
+            </ul>
+            <div class="vertical-line-below"></div>
+        </div>
+
+        <div class="mobile-box">
+            <h2>Sagar Udyog Group</h2>
+            <ul>
+                <li>⦿ K-mens Educational Aids</li>
+                <li>⦿ Sagar Udyog</li>
+                <li>⦿ Sagar Arts</li>
+                <li>⦿ Weekly Janta Shilpkar</li>
+                <li>⦿ Sharyu Industry</li>
+                <li>⦿ Padmaja Industry</li>
+                <li>⦿ P & P Industry</li>
+            </ul>
+        </div>
+
+        <div>
+            <h2 style="text-align: left; position: absolute; top: 150px; left: 550px; color: chocolate;">Our Products</h2>
+            <ul>
+                <li style="text-align: left; position: absolute; top: 200px; left: 550px;  font-size: larger;list-style: none;">⦿ Educational Aids </li>
+                <li style="text-align: left; position: absolute; top: 240px; left: 550px;  font-size: larger;list-style: none;">⦿ Play Ground Equip.</li>
+                <li style="text-align: left; position: absolute; top: 280px; left: 550px;  font-size: larger;list-style: none;">⦿ Mementos</li>
+                <li style="text-align: left; position: absolute; top: 320px; left: 550px;  font-size: larger;list-style: none;">⦿ Gift Articles</li>
+                <li style="text-align: left; position: absolute; top: 360px; left: 550px;  font-size: larger;list-style: none;">⦿ Physical Instruments</li>
+                <li style="text-align: left; position: absolute; top: 400px; left: 550px;  font-size: larger;list-style: none;">⦿ Models</li>
+                <li style="text-align: left; position: absolute; top: 440px; left: 550px;  font-size: larger;list-style: none;">⦿ Charts </li>
+            </ul>
+        </div>
+
+        <img src="Image 01.png" alt="" class="img1">
+        <img src="Image 02.png" alt="" class="img1">
+        <img src="Image 03.png" alt="" class="img1">
+        <img src="Image 04.png" alt="" class="img1">
+        <img src="Image 05.png" alt="" class="img1">
+        <img src="Image 06.png" alt="" class="img1">
+        <img src="Image 07.png" alt="" class="img1">
+        <img src="Image 08.png" alt="" class="img1">
+    </main>
+
+    <hr style="width: 100%; height: 1px; position: relative; top: -70px;">
+    <h3 class="dog">Since Last 42 Years We Are In The Service Of <span>Educational Field</span></h3>
+</body>
+
+</html>
